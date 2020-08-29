@@ -6,7 +6,9 @@ import com.csj.eduservice.entity.Teacher;
 import com.csj.eduservice.service.TeacherService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +32,13 @@ public class TeacherController {
     @GetMapping("")
     public List<Teacher> getAll() {
         return teacherService.list();
+    }
+
+    /**
+     * 逻辑删除讲师
+     */
+    @DeleteMapping("{id}")
+    public boolean removeTeacher(@PathVariable String id) {
+        return teacherService.removeById(id);
     }
 }

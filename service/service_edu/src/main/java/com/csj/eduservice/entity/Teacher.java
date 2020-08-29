@@ -21,13 +21,13 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("edu_teacher")
-@ApiModel(value="Teacher对象", description="讲师")
+@ApiModel(value = "Teacher对象", description = "讲师")
 public class Teacher implements Serializable {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "讲师ID")
-      @TableId(value = "id", type = IdType.ASSIGN_ID)
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private String id;
 
     @ApiModelProperty(value = "讲师姓名")
@@ -56,6 +56,5 @@ public class Teacher implements Serializable {
 
     @ApiModelProperty(value = "更新时间")
     private Date gmtModified;
-
 
 }
