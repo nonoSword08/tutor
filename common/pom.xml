@@ -9,6 +9,7 @@
 
     <modules>
         <module>service_base</module>
+        <module>common_utils</module>
     </modules>
 
     <groupId>com.csj</groupId>
@@ -18,6 +19,7 @@
 
 
     <dependencies>
+        <!-- swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
@@ -27,6 +29,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
