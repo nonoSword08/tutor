@@ -24,11 +24,12 @@
             <artifactId>service_base</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
+        <!-- 因为service_base中已经引入了common_utils，所以可以通过依赖传递，不用显示声明 -->
+        <!-- <dependency>
             <groupId>com.csj</groupId>
             <artifactId>common_utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+        </dependency> -->
         
         <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -14,6 +14,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -62,9 +65,6 @@ public class TeacherController {
         return R.ok().data("total", totol).data("items", records);
     }
 
-    /**
-     * 条件查询带分页
-     */
     @ApiOperation("讲师列表分页带条件查询")
     @GetMapping("pageCondition/{current}/{limit}")
     public R pageConfition(@PathVariable Long current, @PathVariable Long limit, TeacherQuery teacherQuery) {
@@ -102,4 +102,26 @@ public class TeacherController {
         // 包装返回值
         return R.ok().data("total", totol).data("items", records);
     }
+
+    @ApiOperation("添加讲师")
+    @PostMapping("")
+    public R add(@RequestBody Teacher teacher) {
+        boolean result = teacherService.save(teacher);
+        return result ? R.ok() : R.error();
+    }
+
+    @ApiOperation("查询讲师")
+    @GetMapping("{id}")
+    public R get(@PathVariable String id) {
+        return R.ok().data("teacher", teacherService.getById(id));
+    }
+
+    @ApiOperation("修改讲师")
+    @PutMapping("{id}")
+    public R update(@PathVariable String id, @RequestBody Teacher teacher) {
+        teacher.setId(id);
+        boolean result = teacherService.updateById(teacher);
+        return result ? R.ok() : R.error();
+    }
+
 }
